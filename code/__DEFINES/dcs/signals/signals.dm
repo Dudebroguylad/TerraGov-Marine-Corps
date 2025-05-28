@@ -154,6 +154,8 @@
 ///from /datum/emote/living/carbon/human/medic/run_emote()
 #define COMSIG_GLOB_MOB_CALL_MEDIC "!mob_call_medic"
 
+///from /obj/effect/build_designator/Initialize()
+#define COMSIG_GLOB_HOLO_BUILD_INITIALIZED "!holo_build_initialized"
 //////////////////////////////////////////////////////////////////
 // /datum/component signals
 #define COMSIG_AUTOFIRE_ONMOUSEDOWN "autofire_onmousedown"
@@ -416,6 +418,7 @@
 #define COMSIG_TURF_RESUME_PROJECTILE_MOVE "resume_projetile"
 #define COMSIG_TURF_PROJECTILE_MANIPULATED "projectile_manipulated"
 #define COMSIG_TURF_CHECK_COVERED "turf_check_covered" //from /turf/open/liquid/Entered checking if something is covering the turf
+	#define TURF_COVERED (1<<0) //Something is covering it, like a catwalk
 #define COMSIG_TURF_TELEPORT_CHECK "turf_teleport_check" //from /turf/proc/can_teleport_here()
 #define COMSIG_TURF_SUBMERGE_CHECK "turf_submerge_check" //from /turf/proc/get_submerge_height() checking if something on the turf should submerge an AM
 ///from base of /datum/turf_reservation/proc/Release: (datum/turf_reservation/reservation)
@@ -652,6 +655,8 @@
 #define MOB_GET_DO_AFTER_COEFFICIENT "mob_get_do_after_coefficient"
 ///From get_zone_with_miss_chance
 #define MOB_GET_MISS_CHANCE_MOD "mob_get_miss_chance_mod"
+/// from /mob/proc/key_down(): (key, client/client, full_key)
+#define COMSIG_MOB_KEYDOWN "mob_key_down"
 ///From mob/living/carbon/human/has_ai()
 #define COMSIG_HUMAN_HAS_AI "human_has_ai"
 	#define MOB_HAS_AI (1<<0)
@@ -907,6 +912,10 @@
 
 #define COMSIG_ABILITY_SUCCEED_ACTIVATE "xeno_action_succeed_activate"
 	#define SUCCEED_ACTIVATE_CANCEL (1<<0)
+
+//From /obj/machinery/computer/camera_advanced/overwatch/military/proc/attempt_radial()
+#define COMSIG_DO_OVERWATCH_RADIAL "do_overwatch_radial"
+	#define OVERWATCH_RADIAL_HIDE (1<<0)
 
 //Signals for CIC orders
 #define COMSIG_ORDER_SELECTED "order_selected"
